@@ -13,19 +13,19 @@
     ]
   },
   "dependencies": {
-    "@redwoodjs/forms": "0.39.0",
-    "@redwoodjs/router": "0.39.0",
-    "@redwoodjs/web": "0.39.0",
+    "@redwoodjs/forms": "^1.0.0-rc.3",
+    "@redwoodjs/router": "^1.0.0-rc.3",
+    "@redwoodjs/web": "^1.0.0-rc.3",
     "prop-types": "15.7.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@chakra-ui/react": "^1.7.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@storybook/addons": "^6.4.1",
-    "@storybook/theming": "^6.4.1",
+    "@types/react-icons": "^3.0.0",
     "framer-motion": "^4"
   }
 }
