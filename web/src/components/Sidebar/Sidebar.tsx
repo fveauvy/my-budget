@@ -30,7 +30,6 @@ const Sidebar = ({ onClose, display }: SideBarProps) => {
 
   return (
     <Box
-      transition="3s ease"
       bg={backgroud.primary}
       borderRight="1px"
       borderRightColor={border}
