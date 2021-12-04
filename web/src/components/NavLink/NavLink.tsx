@@ -1,22 +1,25 @@
 import Icon from '@chakra-ui/icon'
 import { Flex, Text } from '@chakra-ui/layout'
-import { Link } from '@redwoodjs/router'
+import { Link, useMatch } from '@redwoodjs/router'
 import { IconType } from 'react-icons'
 import useColorTheme from 'src/hooks/useColorTheme'
 
-export type LinkType = {
-  icon?: IconType
+export type LinkItemType = {
+  icon: IconType
   label: string
   route: string
 }
 
 type NavLinkProps = {
-  link: LinkType
+  linkItem: LinkItemType
 }
 
-const NavLink = ({ link }: NavLinkProps) => {
-  const { icon, label, route } = link
+const NavLink = ({ linkItem }: NavLinkProps) => {
+  const { icon, label, route } = linkItem
   const { backgroud, text } = useColorTheme()
+  console.log(route)
+  const matchInfo = useMatch(route)
+  console.log(matchInfo)
 
   return (
     <Link to={route}>
@@ -36,13 +39,21 @@ const NavLink = ({ link }: NavLinkProps) => {
           <Icon
             mr="4"
             fontSize="16"
+            // strokeWidth={matchInfo.match ? 2.5   : 1.5}
+            color={matchInfo.match ? text.active : text.primary}
             _groupHover={{
-              color: text.primary,
+              color: matchInfo.match ? text.active : text.primary,
             }}
             as={icon}
           />
         )}
-        <Text fontSize="1.2rem">{label}</Text>
+        <Text
+          color={matchInfo.match ? text.active : text.primary}
+          // fontWeight={matchInfo.match ? 500 : 400}
+          fontSize="1.2rem"
+        >
+          {label}
+        </Text>
       </Flex>
     </Link>
   )

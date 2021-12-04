@@ -21,7 +21,7 @@ const USER_INFO = {
 const UserProfile = () => {
   const { text } = useColorTheme()
   return (
-    <HStack spacing={{ base: '2', md: '6' }}>
+    <HStack mr={3} spacing={{ base: '2', md: '6' }}>
       <IconButton
         size="lg"
         variant="ghost"

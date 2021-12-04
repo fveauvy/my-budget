@@ -1,6 +1,7 @@
 import { IconButton } from '@chakra-ui/button'
 import { Flex, Text } from '@chakra-ui/layout'
 import { FiMenu } from 'react-icons/fi'
+import useColorTheme from 'src/hooks/useColorTheme'
 import UserProfile from '../UserProfile/UserProfile'
 
 type HeaderProps = {
@@ -9,6 +10,7 @@ type HeaderProps = {
 }
 
 const Header = ({ onOpen, title }: HeaderProps) => {
+  const { backgroud } = useColorTheme()
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -19,6 +21,7 @@ const Header = ({ onOpen, title }: HeaderProps) => {
       zIndex="1"
       alignItems="center"
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
+      bg={backgroud.primary}
     >
       <IconButton
         display={{ base: 'flex', md: 'none' }}
