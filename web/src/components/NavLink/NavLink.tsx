@@ -17,9 +17,7 @@ type NavLinkProps = {
 const NavLink = ({ linkItem }: NavLinkProps) => {
   const { icon, label, route } = linkItem
   const { backgroud, text } = useColorTheme()
-  console.log(route)
   const matchInfo = useMatch(route)
-  console.log(matchInfo)
 
   return (
     <Link to={route}>
@@ -39,7 +37,7 @@ const NavLink = ({ linkItem }: NavLinkProps) => {
           <Icon
             mr="4"
             fontSize="16"
-            // strokeWidth={matchInfo.match ? 2.5   : 1.5}
+            strokeWidth={matchInfo.match ? 2.5 : 1.5}
             color={matchInfo.match ? text.active : text.primary}
             _groupHover={{
               color: matchInfo.match ? text.active : text.primary,
@@ -49,7 +47,7 @@ const NavLink = ({ linkItem }: NavLinkProps) => {
         )}
         <Text
           color={matchInfo.match ? text.active : text.primary}
-          // fontWeight={matchInfo.match ? 500 : 400}
+          fontWeight={matchInfo.match ? 500 : 400}
           fontSize="1.2rem"
         >
           {label}

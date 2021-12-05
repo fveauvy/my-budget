@@ -10,7 +10,7 @@ type HeaderProps = {
 }
 
 const Header = ({ onOpen, title }: HeaderProps) => {
-  const { backgroud } = useColorTheme()
+  const { backgroud, border } = useColorTheme()
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -22,6 +22,8 @@ const Header = ({ onOpen, title }: HeaderProps) => {
       alignItems="center"
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
       bg={backgroud.primary}
+      borderBottom="1px"
+      borderBottomColor={border}
     >
       <IconButton
         display={{ base: 'flex', md: 'none' }}

@@ -22,7 +22,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="full"
+        size="sm"
       >
         <DrawerContent>
           <Sidebar onClose={onClose} />

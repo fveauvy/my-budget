@@ -1,6 +1,6 @@
 import { CloseButton } from '@chakra-ui/close-button'
 import { Box, Flex, Text } from '@chakra-ui/layout'
-import { routes } from '@redwoodjs/router'
+import { routes, useLocation } from '@redwoodjs/router'
 import { FiHome, FiLayout } from 'react-icons/fi'
 import { LinkItemType } from '../NavLink/NavLink'
 import NavLink from '../NavLink/NavLink'
@@ -27,6 +27,28 @@ const Sidebar = ({ onClose, display }: SideBarProps) => {
   ]
 
   const { border, backgroud } = useColorTheme()
+  const { pathname } = useLocation()
+
+  // check if initial render else close the sidebar on route change
+  const firstUpdate = React.useRef(true)
+  React.useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false
+      return
+    }
+    onClose()
+  }, [pathname, onClose])
+
+  // when resizing the window, close the sidebar
+  React.useEffect(() => {
+    const handleResize = () => {
+      onClose()
+    }
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [onClose])
 
   return (
     <Box
